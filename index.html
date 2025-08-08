@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veracity Hub - AI-Powered News Verification</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>📰 Veracity Hub</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#analyze" class="nav-link">Analyze</a></li>
+                <li><a href="#education" class="nav-link">Learn</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+            <button class="nav-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Detect Fake News with AI</h1>
+                <p class="hero-subtitle">Advanced machine learning algorithms to help you identify misinformation and verify news authenticity in real-time.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Accuracy Rate</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10M+</span>
+                        <span class="stat-label">Articles Analyzed</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Real-time Detection</span>
+                    </div>
+                </div>
+                <button class="btn btn--primary btn--lg hero-cta">Start Analyzing News</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section id="analyze" class="analysis-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Analyze News Article</h2>
+                <p>Paste any news article or headline below to check its authenticity</p>
+            </div>
+            
+            <div class="analysis-container">
+                <div class="analysis-input">
+                    <div class="form-group">
+                        <label for="newsText" class="form-label">News Article or Headline</label>
+                        <textarea 
+                            id="newsText" 
+                            class="form-control news-textarea" 
+                            placeholder="Paste your news article or headline here..."
+                            rows="8"
+                        ></textarea>
+                        <div class="text-stats">
+                            <span class="char-count">0 characters</span>
+                            <span class="word-count">0 words</span>
+                        </div>
+                    </div>
+                    
+                    <div class="analysis-actions">
+                        <button id="analyzeBtn" class="btn btn--primary btn--full-width">
+                            <span class="btn-text">Analyze News</span>
+                            <span class="loading-spinner hidden">⟳</span>
+                        </button>
+                        <button id="clearBtn" class="btn btn--outline">Clear Text</button>
+                    </div>
+                </div>
+
+                <div class="sample-articles">
+                    <h3>Try Sample Articles</h3>
+                    <div class="sample-grid" id="sampleGrid">
+                        <!-- Sample articles will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Display -->
+            <div id="resultsContainer" class="results-container hidden">
+                <div class="card">
+                    <div class="card__body">
+                        <div class="result-header">
+                            <div class="result-prediction" id="predictionResult">
+                                <span class="prediction-label" id="predictionLabel"></span>
+                                <span class="confidence-score" id="confidenceScore"></span>
+                            </div>
+                            <div class="result-timestamp" id="resultTimestamp"></div>
+                        </div>
+                        
+                        <div class="result-explanation">
+                            <h4>Analysis Explanation</h4>
+                            <p id="explanationText"></p>
+                        </div>
+                        
+                        <div class="result-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Sensational Language Score:</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="sensationalScore"></div>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Source Credibility Indicators:</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="credibilityScore"></div>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Emotional Language Score:</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="emotionalScore"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="result-actions">
+                            <button id="saveResult" class="btn btn--secondary">Save Result</button>
+                            <button id="shareResult" class="btn btn--outline">Share Analysis</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis History -->
+            <div id="historyContainer" class="history-container">
+                <h3>Recent Analysis History</h3>
+                <div id="historyList" class="history-list">
+                    <p class="empty-state">No analysis history yet. Start by analyzing some news!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Learn About Fake News Detection</h2>
+                <p>Understand how to identify misinformation and protect yourself from fake news</p>
+            </div>
+            
+            <div class="education-grid">
+                <div class="card">
+                    <div class="card__body">
+                        <h3>🎯 How Our AI Works</h3>
+                        <p>Our machine learning model analyzes multiple factors including language patterns, source credibility, emotional triggers, and factual consistency to determine news authenticity.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card__body">
+                        <h3>🚨 Warning Signs</h3>
+                        <p>Look out for sensational headlines, emotional language, lack of sources, conspiracy theories, and urgent calls to action that bypass critical thinking.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card__body">
+                        <h3>✅ Verification Tips</h3>
+                        <div id="tipsList" class="tips-list">
+                            <!-- Tips will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="statistics-section">
+                <h3>Fake News Impact Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">73%</span>
+                        <span class="stat-description">of people have shared news without verifying it</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">6x</span>
+                        <span class="stat-description">faster spread rate of fake news vs real news</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">65%</span>
+                        <span class="stat-description">of adults struggle to identify fake news</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Veracity Hub</h2>
+                <p>Our mission is to combat misinformation through advanced AI technology</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Fighting Misinformation with Technology</h3>
+                    <p>In an era where information spreads faster than ever, distinguishing between authentic and fabricated news has become crucial. Our AI-powered platform uses sophisticated natural language processing and machine learning algorithms to analyze news content and provide real-time authenticity assessments.</p>
+                    
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li>Advanced text analysis using NLP algorithms</li>
+                        <li>Real-time fake news detection</li>
+                        <li>Detailed explanations of analysis results</li>
+                        <li>Educational resources and verification tips</li>
+                        <li>Historical analysis tracking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <span id="toastMessage"></span>
+        <button id="toastClose">×</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>📰 Veracity Hub</h4>
+                    <p>AI-powered news verification for a more informed world.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="#analyze">Analyze News</a></li>
+                        <li><a href="#education">Learn</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#" target="_blank">Help Center</a></li>
+                        <li><a href="#" target="_blank">Contact Us</a></li>
+                        <li><a href="#" target="_blank">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Veracity Hub. Empowering truth through technology.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
